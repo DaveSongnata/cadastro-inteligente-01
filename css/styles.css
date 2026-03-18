@@ -1,0 +1,44 @@
+:root {
+    --azul: #2E6DA4;
+    --azul-escuro: #1b4b75;
+    --verde: #1E7B4B;
+    --vermelho: #C0392B;
+    --laranja: #E67E22;
+    --amarelo: #F1C40F;
+    --cinza-claro: #dde1e7;
+    --bg-color: #f4f7f6;
+    --radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body { background-color: var(--bg-color); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 1rem; }
+
+.form-container { background: #fff; padding: 2rem; border-radius: var(--radius); box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; }
+.form-container h2 { text-align: center; margin-bottom: 1.5rem; color: #333; }
+
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+label { font-weight: 600; font-size: 0.9rem; color: #444; }
+
+input { padding: 0.75rem 1rem; border: 2px solid var(--cinza-claro); border-radius: var(--radius); font-size: 1rem; transition: all 0.3s ease; outline: none; }
+input:focus { border-color: var(--azul); }
+input.error { border-color: var(--vermelho); background: #fff5f5; }
+input.success { border-color: var(--verde); background: #f0fff4; }
+
+.error-msg { color: var(--vermelho); font-size: 0.85rem; min-height: 1.2em; }
+
+/* Barra de Força da Senha */
+.password-strength { height: 6px; background: var(--cinza-claro); border-radius: 3px; margin-top: 5px; overflow: hidden; }
+.strength-bar { height: 100%; width: 0; transition: width 0.4s ease, background-color 0.4s ease; }
+
+/* Botão e Spinner */
+button { position: relative; width: 100%; padding: 0.9rem; background: var(--azul); color: white; border: none; border-radius: var(--radius); cursor: pointer; font-size: 1rem; font-weight: 600; transition: background 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 10px; }
+button:hover:not(:disabled) { background: var(--azul-escuro); }
+button:disabled { opacity: 0.7; cursor: not-allowed; }
+
+.spinner { width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.success-alert { background: #f0fff4; color: var(--verde); border: 1px solid var(--verde); padding: 1rem; border-radius: var(--radius); margin-bottom: 1.5rem; text-align: center; font-weight: 600; }
+
+@media (max-width: 600px) { .form-container { padding: 1.25rem; } }
